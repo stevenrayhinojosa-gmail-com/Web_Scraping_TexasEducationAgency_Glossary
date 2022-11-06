@@ -1,0 +1,9 @@
+import requests
+from bs4 import BeautifulSoup
+
+html_text = requests.get('https://tea.texas.gov/about-tea/glossary-of-acronyms').text
+  
+soup = BeautifulSoup(html_text,'lxml')
+glossary = soup.find('div', class_ = 'main-container')
+key_word = glossary.find('h2',class_ = 'div_class' )
+print(html_text)
